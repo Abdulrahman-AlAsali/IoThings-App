@@ -1,1 +1,74 @@
-"node_modules\n.env\nlogs" 
+###############################################################################
+# 1. Node runtimes & package managers
+###############################################################################
+node_modules/          # always ignore dependencies
+.pnp.*                 # Yarn Plug’n’Play files
+npm-debug.log*         # npm error logs
+yarn-debug.log*
+yarn-error.log*
+
+###############################################################################
+# 2. Environment & secrets
+###############################################################################
+.env                   # main env file
+.env.*                 # any env variants (.env.test, .env.local, …)
+mongo-keyfile          # the replica-set key you created
+certs/                 # TLS certs / keys
+*.pem
+*.key
+*.crt
+
+###############################################################################
+# 3. Build / transpile output
+###############################################################################
+dist/                  # typical output folder (e.g. TypeScript, webpack)
+build/
+coverage/              # test coverage
+.nyc_output/           # nyc/istanbul temp data
+*.tsbuildinfo          # TypeScript incremental compilation cache
+tmp/
+temp/
+
+###############################################################################
+# 4. Logs & runtime files
+###############################################################################
+logs/
+*.log
+logs/**/*.log
+*.pid                 # process ID files (if you store them)
+
+###############################################################################
+# 5. Database artefacts & backups
+###############################################################################
+dump/                  # mongodump output
+*.archive.gz
+*.dump
+*.mongodb
+
+###############################################################################
+# 6. Container / deployment extras
+###############################################################################
+docker-compose.override.yml
+*.local.yml
+*.env.docker
+
+###############################################################################
+# 7. Editor / OS cruft
+###############################################################################
+.vscode/
+.idea/
+*.suo
+*.sw?
+*.sublime-*
+.DS_Store
+Thumbs.db
+desktop.ini
+
+###############################################################################
+# 8. Archives & misc binaries
+###############################################################################
+*.tgz
+*.gz
+*.zip
+*.bak
+*.backup
