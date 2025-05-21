@@ -1,0 +1,39 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "IoThings Sensor API",
+    "version": "1.0.0",
+    "description": "Simple demo API for querying sensor usage"
+  },
+  "paths": {
+    "/homes/{homeId}/usage": {
+      "get": {
+        "summary": "Aggregate device activations for a home",
+        "parameters": [
+          { "name": "homeId", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "from",   "in": "query", "schema": { "type": "string", "format": "date-time" } },
+          { "name": "to",     "in": "query", "schema": { "type": "string", "format": "date-time" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "_id":   { "type": "string" },
+                      "count": { "type": "integer" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

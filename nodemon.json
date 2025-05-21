@@ -1,0 +1,4 @@
+{
+  "exec": "node src/app.js",
+  "ext": "js,json"
+}
